@@ -1,25 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import DayCard from './Components/DayCard';
+import Location from './Components/Location';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      location: ''
+    }
+  }
+
+  getLocation = (location) => {
+    this.setState({ location: location })
+  }
+
+
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className='App-Wrapper'>
+        <Location getLocation={this.getLocation} />
+        <h1>{this.state.location}</h1>
+        <div>
+          <h3>Current Weather</h3>
+          <DayCard location={this.state.location}/>
+        </div>
+        <div>
+          <h3>5-Day Forecast</h3>
+          <DayCard location={this.state.location}/>
+          <DayCard location={this.state.location}/>
+          <DayCard location={this.state.location}/>
+          <DayCard location={this.state.location}/>
+          <DayCard location={this.state.location}/>
+        </div>
       </div>
     );
   }
