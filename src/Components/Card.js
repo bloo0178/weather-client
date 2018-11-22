@@ -1,13 +1,14 @@
 import React from 'react';
-import './DayCard.css';
+import './Card.css';
 import axios from 'axios';
+import Current from './Current-Weather';
 
 let APIkey = 'aadd2eb63b5dece08ab06ef70507cc13'; 
 
 //Forecast example: http://api.openweathermap.org/data/2.5/forecast?zip=06831,us&APPID=aadd2eb63b5dece08ab06ef70507cc13&units=imperial
 //Current weather: http://api.openweathermap.org/data/2.5/weather?zip=06831,us&APPID=aadd2eb63b5dece08ab06ef70507cc13&units=imperial 
 
-class DayCard extends React.Component {
+class Card extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,14 +43,14 @@ class DayCard extends React.Component {
 
     render() {
         return (
-            <div className="Day-Card-Wrapper">
-                <div>DAYCARD</div>
+            <div className="Card-Wrapper">
+                <div>CARD</div>
                 <div>{this.props.location}</div>
                 <div>{this.state.date}</div>
                 {/*Use this for icons: https://openweathermap.org/weather-conditions
                 https://www.reddit.com/r/FreeCodeCamp/comments/4con5s/how_do_i_use_the_icon_given_in_the_open_weather/*/}
                 <div>ICON</div>
-                <div>{this.state.temp}</div>
+                <div>{this.props.temp}</div>
                 <div>{this.state.precipitation}</div>
                 <div>AXIOS TEST: {this.state.data}</div>
             </div>
@@ -57,4 +58,5 @@ class DayCard extends React.Component {
     }
 }
 
-export default DayCard; 
+export default Card; 
+
