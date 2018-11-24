@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import Card from './Components/Card';
-import Card2 from './Components/Card2'
 import Current from './Components/Current-Weather'
 import Location from './Components/Location';
+import Forecast from './Components/Forecast';
 
 
-const CurrentWeather = Current(Card2);
+
 
 
 class App extends Component {
@@ -32,19 +31,19 @@ class App extends Component {
         <h1>{this.state.location}</h1>
         <div>
           <h3>Current Weather</h3>
-          <CurrentWeather
+          <Current
             location={this.state.location}
             units={this.state.units}
             tempUnit={this.state.tempUnit}
           />
         </div>
         <div>
-          <h3>5-Day Forecast</h3>
-          <Card location={this.state.location} />
-          <Card location={this.state.location} />
-          <Card location={this.state.location} />
-          <Card location={this.state.location} />
-          <Card location={this.state.location} />
+          <h3>Forecast</h3>
+          <Forecast
+            location={this.state.location}
+            units={this.state.units}
+            tempUnit={this.state.tempUnit}
+          />
         </div>
       </div>
     );
