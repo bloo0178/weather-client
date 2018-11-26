@@ -19,6 +19,3 @@ For added practice, here are a few ways you could expand on the app:
 
 
 https://openweathermap.org/api 
-
-
-api.openweathermap.org/data/2.5/forecast?lat=41.9584457&lon=-70.66726210000002&APPID=aadd2eb63b5dece08ab06ef70507cc13
