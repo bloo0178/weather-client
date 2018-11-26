@@ -1,10 +1,10 @@
 // Imports
 import React, { Component } from 'react';
 
-
-
 // Import React Scrit Libraray to load Google object
 import Script from 'react-load-script';
+
+let GMAPS_API_KEY=process.env.REACT_APP_GMAPS_API_KEY;
 
 class Search extends Component {
   // Define Constructor
@@ -66,7 +66,7 @@ class Search extends Component {
     return (
       <div>
         <Script
-          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8hfLf0Izo64sVT21lr8jQ5Lq2T68kGBc&libraries=places"
+          url={`https://maps.googleapis.com/maps/api/js?key=${GMAPS_API_KEY}&libraries=places`}
           onLoad={this.handleScriptLoad}
         />
         <input id="autocomplete" onChange={this.handleChange} value={this.state.query}/>

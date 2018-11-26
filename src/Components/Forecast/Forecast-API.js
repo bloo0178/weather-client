@@ -1,7 +1,7 @@
 import axios from 'axios';
 import moment from 'moment';
 
-let APIkey = 'aadd2eb63b5dece08ab06ef70507cc13';
+let APIkey = process.env.REACT_APP_WEATHER_API_KEY;
 
 const getForecast = (locationString, units, cb) => {
     axios.get(`http://api.openweathermap.org/data/2.5/forecast?` +

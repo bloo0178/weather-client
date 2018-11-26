@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Current from './Components/Current-Weather'
+import Current from './Components/Current-Weather/Current-Weather'
 import LocationSearchInput from './Components/Location';
 import Forecast from './Components/Forecast/Forecast';
 import Search from './Components/Location2'
+
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +17,8 @@ class App extends Component {
       tempUnit: 'F',
     }
   }
+
+  
 
   //modify this to pull in zip or city/state - cross against city code???
   getLocation = (location, locationName) => {
