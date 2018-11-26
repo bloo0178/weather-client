@@ -1,3 +1,7 @@
+https://www.npmjs.com/package/react-places-autocomplete
+
+https://stackoverflow.com/questions/27883777/how-to-find-weather-forecast-city-id
+
 https://daveceddia.com/react-practice-projects/
 
 Display a 5-day weather forecast, where each day shows the high and low temperatures, and an image for sunny/rainy/cloudy/snowy. Use fake, hard-coded data until you’ve got everything rendering correctly.
@@ -15,3 +19,6 @@ For added practice, here are a few ways you could expand on the app:
 
 
 https://openweathermap.org/api 
+
+
+api.openweathermap.org/data/2.5/forecast?lat=41.9584457&lon=-70.66726210000002&APPID=aadd2eb63b5dece08ab06ef70507cc13

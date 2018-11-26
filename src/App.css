@@ -14,3 +14,30 @@
   align-items: center;
   border: 1px solid black;
 }
+
+/* ------------------- FORECAST ------------------- */
+
+.Forecast-Wrapper {
+  width: 75vw;
+}
+
+.Forecast-Date {
+  padding-top: 1.5em;
+  font-weight: bold;
+}
+
+.Forecast-Detail {
+  border-bottom: 1px solid black;
+}
+
+.Forecast-Detail > ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Forecast-Detail > ul > li {
+  margin: auto;
+}
+
