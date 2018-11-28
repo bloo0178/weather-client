@@ -3,8 +3,6 @@ import './App.css';
 import Current from './Components/Current-Weather/Current-Weather'
 import LocationSearchInput from './Components/Location';
 import Forecast from './Components/Forecast/Forecast';
-import Search from './Components/Location2'
-
 
 class App extends Component {
   constructor(props) {
@@ -18,8 +16,6 @@ class App extends Component {
     }
   }
 
-  
-
   //modify this to pull in zip or city/state - cross against city code???
   getLocation = (location, locationName) => {
     this.setState({
@@ -27,8 +23,6 @@ class App extends Component {
       locationName: locationName
     })
   }
-
-
 
   render() {
     if (this.state.location === '') {

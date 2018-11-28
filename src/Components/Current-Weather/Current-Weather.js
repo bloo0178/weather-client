@@ -12,6 +12,19 @@ class Current extends React.Component {
         }
     }
 
+    componentDidUpdate = (prevProps) => {
+        if (this.props.location !== prevProps.location) {
+            getCurrent(this.props.location, this.props.units, (currentWeather) => {
+                this.setState({
+                    date: currentWeather.date,
+                    temp: currentWeather.temp,
+                    icon: currentWeather.icon,
+                    description: currentWeather.description
+                })
+            });
+        }
+    }
+
     componentDidMount() {
         getCurrent(this.props.location, this.props.units, 
             (currentWeather) => {
