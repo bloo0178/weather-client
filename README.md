@@ -7,6 +7,7 @@ Learnings:
 -Higher Order Components 
 -Fragments
 -Context
+-Further experience w/ GitHub. (.gitignore, branch/ pull)
 
 
 Future Updates: 
