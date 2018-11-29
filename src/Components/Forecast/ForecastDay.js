@@ -1,7 +1,5 @@
 import React from 'react';
-import { Collapse, Button } from 'reactstrap';
-import moment from 'moment';
-
+import { Collapse, Button, Table } from 'reactstrap';
 
 class ForecastDay extends React.Component {
     constructor(props) {
@@ -20,25 +18,25 @@ class ForecastDay extends React.Component {
     render() {
         return (
             <div className="Forecast-Wrapper">
-                <div className="Forecast-Date">
+                <span className="Forecast-Date">
                     {this.props.date}
-                </div>
-                <Button color="secondary" size="sm" onClick={this.toggle}>toggle</Button>
+                    <Button color="secondary" size="sm" onClick={this.toggle}>toggle</Button>
+                </span>
                 <Collapse isOpen={!this.state.collapse}>
+                <Table striped size="sm" >
+                    <tbody >
                     {this.props.times.map((time) => {
                         return (
-                            //Use a table for this instead
-                            <div className="Forecast-Detail">
-                                <ul>
-                                    <li>{time.time}</li>
-                                    <li><img src={time.icon} /></li>
-                                    <li>{time.temp + ' ' + this.props.tempUnit}</li>
-                                    <li>{time.description}</li>
-                                </ul>
-                            </div>
+                            <tr >
+                                <td className="align-middle">{time.time}</td>
+                                <td className="align-middle"><img src={time.icon} /></td>
+                                <td className="align-middle">{time.temp + ' ' + this.props.tempUnit}</td>
+                                <td className="align-middle">{time.description}</td>
+                            </tr>
                         )
                     })}
-
+                    </tbody>
+                </ Table>
                 </Collapse>
             </div>
         )

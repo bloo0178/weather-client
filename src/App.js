@@ -16,7 +16,6 @@ class App extends Component {
     }
   }
 
-  //modify this to pull in zip or city/state - cross against city code???
   getLocation = (location, locationName) => {
     this.setState({
       location: location,
@@ -29,17 +28,16 @@ class App extends Component {
       return (
         <div className='App-Wrapper'>
           <LocationSearchInput getLocation={this.getLocation} />
-          <h3>Enter a location.</h3>
         </div>
       )
     } else {
       return (
         <div className='App-Wrapper'>
-          {/*} <Location getLocation={this.getLocation} /> */}
-          <LocationSearchInput getLocation={this.getLocation} />
+          <LocationSearchInput
+            getLocation={this.getLocation}
+          />
           <h1>{this.state.locationName}</h1>
           <div>
-            <h3>Current Weather</h3>
             <Current
               location={this.state.location}
               units={this.state.units}
@@ -47,7 +45,6 @@ class App extends Component {
             />
           </div>
           <div>
-            <h3>Forecast</h3>
             <Forecast
               location={this.state.location}
               units={this.state.units}

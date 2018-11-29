@@ -1,5 +1,7 @@
 import React from 'react';
 import getCurrent from './Current-Weather-API';
+import { Card, CardImg, CardText, CardBody, 
+CardTitle, CardSubtitle } from 'reactstrap';
 
 class Current extends React.Component {
     constructor(props) {
@@ -41,11 +43,22 @@ class Current extends React.Component {
     render() {
         return (
             <div className="Card-Wrapper">
+            <Card>
+                <CardBody className="text-center">
+                    <CardTitle>Current Weather</CardTitle>
+                    <div>{this.state.date}</div>
+                    <img src={this.state.icon} alt="Current weather icon" />
+                    <div>{this.state.temp + ' ' + this.props.tempUnit}</div>
+                    <div>{this.state.description}</div>
+                </CardBody>
+            </Card>
+            </div>
+            /*<div className="Card-Wrapper">
                 <div>{this.state.date}</div>
                 <div>{this.state.temp + ' ' + this.props.tempUnit}</div>
                 <img src={this.state.icon} />
                 <div>{this.state.description}</div>
-            </div>
+            </div>*/
         )
     }
 }

@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   padding: 3em;
-  border: 1px solid blue;
 }
 
 .Card-Wrapper {
@@ -12,7 +11,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  padding-bottom: 2em;
+}
+
+/* ----------------- TITLE ------------------------ */
+
+.App-Wrapper > h1 {
+  padding: 1em;
+}
+
+/* ----------------- LOCATION --------------------- */
+
+.location-container {
+  width: 20em;
+}
+
+.location-container > input {
+  width: 20em;
 }
 
 /* ------------------- FORECAST ------------------- */
@@ -27,17 +42,7 @@
 }
 
 .Forecast-Detail {
-  border-bottom: 1px solid black;
+
 }
 
-.Forecast-Detail > ul {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.Forecast-Detail > ul > li {
-  margin: auto;
-}
 
