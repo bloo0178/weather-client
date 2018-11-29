@@ -8,8 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      //location: '',
-      location: 'zip=06831,us', //will need to set to format for lat/ lng
+      location: '',
+      //location: 'zip=06831,us', //will need to set to format for lat/ lng
       locationName: 'DEFAULT',
       units: 'imperial', //offer ability to select
       tempUnit: 'F',

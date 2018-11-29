@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 2em;
+  padding-bottom: 1rem;
 }
 
 /* ----------------- TITLE ------------------------ */
@@ -34,15 +34,15 @@
 
 .Forecast-Wrapper {
   width: 75vw;
+  padding-top: 1rem;
 }
 
 .Forecast-Date {
-  padding-top: 1.5em;
-  font-weight: bold;
+  padding-bottom: 1rem;
 }
 
 .Forecast-Detail {
-
+  text-align: center;
 }
 
 

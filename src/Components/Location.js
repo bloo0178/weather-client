@@ -16,8 +16,6 @@ export class LocationSearchInput extends React.Component {
         };
     }
 
-
-
     handleChange = address => {
         this.setState({ address })
     }
@@ -52,13 +50,9 @@ export class LocationSearchInput extends React.Component {
         })
     }
 
-
-
     render() {
-
         return (
             <div>
-
                 <PlacesAutocomplete
                     value={this.state.address}
                     onChange={this.handleChange}
@@ -102,8 +96,6 @@ export class LocationSearchInput extends React.Component {
                         </div>
                     )}
                 </PlacesAutocomplete>
-
-
             </div>
         );
     }

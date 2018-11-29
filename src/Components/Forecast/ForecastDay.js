@@ -18,25 +18,26 @@ class ForecastDay extends React.Component {
     render() {
         return (
             <div className="Forecast-Wrapper">
-                <span className="Forecast-Date">
-                    {this.props.date}
-                    <Button color="secondary" size="sm" onClick={this.toggle}>toggle</Button>
-                </span>
+                <thead >
+                    <tr >
+                        <th className="Forecast-Date" >{this.props.date}</th>
+                    </tr>
+                </thead>
                 <Collapse isOpen={!this.state.collapse}>
-                <Table striped size="sm" >
-                    <tbody >
-                    {this.props.times.map((time) => {
-                        return (
-                            <tr >
-                                <td className="align-middle">{time.time}</td>
-                                <td className="align-middle"><img src={time.icon} /></td>
-                                <td className="align-middle">{time.temp + ' ' + this.props.tempUnit}</td>
-                                <td className="align-middle">{time.description}</td>
-                            </tr>
-                        )
-                    })}
-                    </tbody>
-                </ Table>
+                    <Table striped size="sm" className="Forecast-Detail">
+                        <tbody >
+                            {this.props.times.map((time) => {
+                                return (
+                                    <tr>
+                                        <td className="w-25 align-middle">{time.time}</td>
+                                        <td className="w-25 align-middle"><img src={time.icon} /></td>
+                                        <td className="w-25 align-middle">{time.temp + ' ' + this.props.tempUnit}</td>
+                                        <td className="w-25 align-middle">{time.description}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </ Table>
                 </Collapse>
             </div>
         )

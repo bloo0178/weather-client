@@ -11,7 +11,7 @@ const getForecast = (locationString, units, cb) => {
             const data = (res.data.list);
             //dateRange is used as the baseline to ensure displayed forecast doesn't exceed a 5-day window.
             var minDate = moment().format("YYYY-MM-DD");
-            var maxDate = moment().add(5, 'days').format("YYYY-MM-DD");
+            var maxDate = moment().add(4, 'days').format("YYYY-MM-DD");
 
             var newData = [];
 
@@ -19,7 +19,8 @@ const getForecast = (locationString, units, cb) => {
                 let elemDate = moment(elem.dt_txt, "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
                 let elemTime = moment(elem.dt_txt, "YYYY-MM-DD HH:mm:ss").format("ha");
                 //Only show forecast for 5 days after today. This checks dataset to see if value is today or earlier.
-                if (moment(elemDate).isSameOrBefore(minDate)) return;
+                //if (moment(elemDate).isSameOrBefore(minDate)) return;
+                if (moment(elemDate).isBefore(minDate)) return;
                 //This checks dataset to see if value is after 5 days from now.
                 if (moment(elemDate).isAfter(maxDate)) return;
                 let temp = {

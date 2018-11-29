@@ -1,7 +1,6 @@
 import React from 'react';
 import getCurrent from './Current-Weather-API';
-import { Card, CardImg, CardText, CardBody, 
-CardTitle, CardSubtitle } from 'reactstrap';
+import { Card, CardBody, CardTitle } from 'reactstrap';
 
 class Current extends React.Component {
     constructor(props) {
@@ -28,7 +27,7 @@ class Current extends React.Component {
     }
 
     componentDidMount() {
-        getCurrent(this.props.location, this.props.units, 
+        getCurrent(this.props.location, this.props.units,
             (currentWeather) => {
                 this.setState({
                     date: currentWeather.date,
@@ -43,22 +42,16 @@ class Current extends React.Component {
     render() {
         return (
             <div className="Card-Wrapper">
-            <Card>
-                <CardBody className="text-center">
-                    <CardTitle>Current Weather</CardTitle>
-                    <div>{this.state.date}</div>
-                    <img src={this.state.icon} alt="Current weather icon" />
-                    <div>{this.state.temp + ' ' + this.props.tempUnit}</div>
-                    <div>{this.state.description}</div>
-                </CardBody>
-            </Card>
+                <Card className="border-0">
+                    <CardBody className="text-center">
+                        <CardTitle>Currently</CardTitle>
+                        {/*<div>{this.state.date}</div>*/}
+                        <img src={this.state.icon} alt="Current weather icon" />
+                        <div>{this.state.temp + ' ' + this.props.tempUnit}</div>
+                        <div>{this.state.description}</div>
+                    </CardBody>
+                </Card>
             </div>
-            /*<div className="Card-Wrapper">
-                <div>{this.state.date}</div>
-                <div>{this.state.temp + ' ' + this.props.tempUnit}</div>
-                <img src={this.state.icon} />
-                <div>{this.state.description}</div>
-            </div>*/
         )
     }
 }
