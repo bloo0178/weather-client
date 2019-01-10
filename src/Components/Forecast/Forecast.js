@@ -24,6 +24,7 @@ class Forecast extends React.Component {
     componentDidMount = () => {
         getForecast(this.props.location, this.props.units, 
             (data) => {
+                console.log(data);
                 this.setState({
                     array: data
                 })
