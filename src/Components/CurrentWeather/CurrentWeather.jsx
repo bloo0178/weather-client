@@ -1,8 +1,9 @@
 import React from 'react';
-import getCurrent from './Current-Weather-API';
+import getCurrent from '../../api/currentWeatherAPI';
 import { Card, CardBody, CardTitle } from 'reactstrap';
+import styles from './CurrentWeather.module.scss';
 
-class Current extends React.Component {
+class CurrentWeather extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -41,7 +42,7 @@ class Current extends React.Component {
 
     render() {
         return (
-            <div className="Card-Wrapper">
+            <div className={styles.cardWrapper}>
                 <Card className="border-0">
                     <CardBody className="text-center">
                         <CardTitle>Currently</CardTitle>
@@ -57,4 +58,4 @@ class Current extends React.Component {
 }
 
 
-export default Current; 
+export default CurrentWeather; 

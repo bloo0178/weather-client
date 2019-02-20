@@ -1,7 +1,8 @@
 import React from 'react';
 import { Collapse, Button, Table } from 'reactstrap';
+import styles from './ForecastDayCard.module.scss';
 
-class ForecastDay extends React.Component {
+class ForecastDayCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,14 +18,14 @@ class ForecastDay extends React.Component {
 
     render() {
         return (
-            <div className="Forecast-Wrapper">
+            <div className={styles.forecastWrapper}>
                 <thead >
                     <tr >
-                        <th className="Forecast-Date" >{this.props.date}</th>
+                        <th className={styles.forecastDate} >{this.props.date}</th>
                     </tr>
                 </thead>
                 <Collapse isOpen={!this.state.collapse}>
-                    <Table striped size="sm" className="Forecast-Detail">
+                    <Table striped size="sm" className={styles.forecastDetail}>
                         <tbody >
                             {this.props.times.map((time) => {
                                 return (
@@ -46,5 +47,5 @@ class ForecastDay extends React.Component {
 
 }
 
-export default ForecastDay;
+export default ForecastDayCard;
 

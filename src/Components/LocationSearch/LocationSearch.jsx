@@ -2,8 +2,9 @@ import React from 'react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { GoogleApiWrapper } from 'google-maps-react';
 import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
+import styles from "./LocationSearch.module.scss";
 
-export class LocationSearchInput extends React.Component {
+export class LocationSearch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -59,7 +60,7 @@ export class LocationSearchInput extends React.Component {
                     onSelect={this.handleSelect}
                 >
                     {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                        <div className="location-container">
+                        <div className={styles.locationContainer}>
                             <InputGroup>
                                 <Input
                                     {...getInputProps({
@@ -101,7 +102,6 @@ export class LocationSearchInput extends React.Component {
     }
 }
 
-//export default LocationSearchInput; 
 export default GoogleApiWrapper({
     apiKey: (process.env.REACT_APP_GMAPS_API_KEY)
-})(LocationSearchInput)
+})(LocationSearch)

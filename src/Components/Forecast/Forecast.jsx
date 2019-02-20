@@ -1,7 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-import getForecast from './Forecast-API'
-import ForecastDay from './ForecastDay';
+import getForecast from '../../api/forecastAPI'
+import ForecastDayCard from './ForecastDayCard/ForecastDayCard';
+
 
 class Forecast extends React.Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class Forecast extends React.Component {
         
         return this.state.array.map((day) => {
             return (
-                <ForecastDay 
+                <ForecastDayCard 
                     date={moment(day.date, "YYYY-MM-DD").format("ddd MMM D")}
                     times={day.times}
                     tempUnit={this.props.tempUnit}

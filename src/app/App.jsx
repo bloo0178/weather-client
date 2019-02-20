@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
-import Current from './Components/Current-Weather/Current-Weather'
-import LocationSearchInput from './Components/Location';
-import Forecast from './Components/Forecast/Forecast';
+import styles from './App.module.scss';
+import CurrentWeather from '../Components/CurrentWeather/CurrentWeather'
+import LocationSearch from '../Components/LocationSearch/LocationSearch';
+import Forecast from '../Components/Forecast/Forecast';
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       location: '',
-      //location: 'zip=06831,us', //will need to set to format for lat/ lng
       locationName: 'DEFAULT',
       units: 'imperial', //offer ability to select
       tempUnit: 'F',
@@ -26,19 +25,19 @@ class App extends Component {
   render() {
     if (this.state.location === '') {
       return (
-        <div className='App-Wrapper'>
-          <LocationSearchInput getLocation={this.getLocation} />
+        <div className={styles.appWrapper}>
+          <LocationSearch getLocation={this.getLocation} />
         </div>
       )
     } else {
       return (
-        <div className='App-Wrapper'>
-          <LocationSearchInput
+        <div className={styles.appWrapper}>
+          <LocationSearch
             getLocation={this.getLocation}
           />
           <h1>{this.state.locationName}</h1>
           <div>
-            <Current
+            <CurrentWeather
               location={this.state.location}
               units={this.state.units}
               tempUnit={this.state.tempUnit}
