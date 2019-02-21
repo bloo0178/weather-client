@@ -42,7 +42,8 @@ export class LocationSearch extends React.Component {
     }
 
     handleClick = () => {
-        this.props.getLocation(`lat=${this.state.latitude}&lon=${this.state.longitude}`, this.state.locationName)
+        const { latitude, longitude, locationName } = this.state;
+        this.props.getLocation(`lat=${latitude}&lon=${longitude}`, locationName)
         this.setState({
             address: '',
             latitude: null,

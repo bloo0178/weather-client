@@ -1,54 +1,49 @@
-import React, { Component } from 'react';
-import styles from './App.module.scss';
-import CurrentWeather from '../Components/CurrentWeather/CurrentWeather'
-import LocationSearch from '../Components/LocationSearch/LocationSearch';
-import Forecast from '../Components/Forecast/Forecast';
+import React, { Component } from "react";
+import styles from "./App.module.scss";
+import CurrentWeather from "../Components/CurrentWeather/CurrentWeather";
+import LocationSearch from "../Components/LocationSearch/LocationSearch";
+import Forecast from "../Components/Forecast/Forecast";
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      location: '',
-      locationName: 'DEFAULT',
-      units: 'imperial', //offer ability to select
-      tempUnit: 'F',
-    }
+      location: "",
+      locationName: "DEFAULT",
+      units: "imperial", //offer ability to select
+      tempUnit: "F"
+    };
   }
 
   getLocation = (location, locationName) => {
     this.setState({
       location: location,
       locationName: locationName
-    })
-  }
+    });
+  };
 
   render() {
-    if (this.state.location === '') {
+    const { location, locationName, units, tempUnit } = this.state;
+    if (location === "") {
       return (
         <div className={styles.appWrapper}>
           <LocationSearch getLocation={this.getLocation} />
         </div>
-      )
+      );
     } else {
       return (
         <div className={styles.appWrapper}>
-          <LocationSearch
-            getLocation={this.getLocation}
-          />
-          <h1>{this.state.locationName}</h1>
+          <LocationSearch getLocation={this.getLocation} />
+          <h1>{locationName}</h1>
           <div>
             <CurrentWeather
-              location={this.state.location}
-              units={this.state.units}
-              tempUnit={this.state.tempUnit}
+              location={location}
+              units={units}
+              tempUnit={tempUnit}
             />
           </div>
           <div>
-            <Forecast
-              location={this.state.location}
-              units={this.state.units}
-              tempUnit={this.state.tempUnit}
-            />
+            <Forecast location={location} units={units} tempUnit={tempUnit} />
           </div>
         </div>
       );

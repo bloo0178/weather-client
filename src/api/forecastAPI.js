@@ -46,7 +46,6 @@ const getForecast = (locationString, units, cb) => {
             cb(newData);
         })
         .catch(err => {
-            //return "caught error";
             cb("caught error");
         })
 }
