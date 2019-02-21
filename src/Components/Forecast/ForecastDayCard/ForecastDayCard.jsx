@@ -1,4 +1,5 @@
 import React from "react";
+// eslint-disable-next-line
 import { Collapse, Table } from "reactstrap";
 import styles from "./ForecastDayCard.module.scss";
 
