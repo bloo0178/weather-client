@@ -4,7 +4,7 @@ import moment from 'moment';
 let APIkey = process.env.REACT_APP_WEATHER_API_KEY;
 
 const getCurrent = (locationString, units, cb) => {
-    axios.get(`http://api.openweathermap.org/data/2.5/weather?` +
+    axios.get(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?` +
             `${locationString}&APPID=${APIkey}&units=${units}`)
             .then(res => {
                 console.log(res.data);

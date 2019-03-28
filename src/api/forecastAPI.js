@@ -4,7 +4,7 @@ import moment from 'moment';
 let APIkey = process.env.REACT_APP_WEATHER_API_KEY;
 
 const getForecast = (locationString, units, cb) => {
-    axios.get(`http://api.openweathermap.org/data/2.5/forecast?` +
+    axios.get(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?` +
         `${locationString}&APPID=${APIkey}&units=${units}&cnt=50`)
         // ^^^ This will return a max of 40 objects with the free API. Cuts off the final data point on the last day.
         .then(res => {
