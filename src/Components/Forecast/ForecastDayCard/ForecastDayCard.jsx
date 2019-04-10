@@ -1,6 +1,5 @@
 import React from "react";
-// eslint-disable-next-line
-import { Collapse, Table } from "reactstrap";
+import { Table } from "reactstrap";
 import styles from "./ForecastDayCard.module.scss";
 
 class ForecastDayCard extends React.Component {
@@ -22,15 +21,17 @@ class ForecastDayCard extends React.Component {
     return (
       <div className={styles.forecastWrapper}>
         <h4 className={styles.forecastDate}>{date}</h4>
-        {/*<Collapse isOpen={!this.state.collapse}>*/}
         <Table striped size="sm" className={styles.forecastDetail}>
           <tbody>
             {times.map(time => {
+              let regex = /(.{3})(?=(\.png))/; 
+              let icon = regex.exec(time.icon)[0];
+              const iconSrc = require(`../../../common/icons/${icon}.svg`);
               return (
                 <tr key={time.time}>
                   <td className="w-25 align-middle">{time.time}</td>
                   <td className="w-25 align-middle">
-                    <img src={time.icon} alt={"weather icon"} />
+                    <img src={iconSrc} alt={`${time.time} weather icon`} />
                   </td>
                   <td className="w-25 align-middle">
                     {time.temp + " " + tempUnit}
@@ -41,7 +42,6 @@ class ForecastDayCard extends React.Component {
             })}
           </tbody>
         </Table>
-        {/*</Collapse>*/}
       </div>
     );
   }

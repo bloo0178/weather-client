@@ -2,7 +2,6 @@ import React from "react";
 import getCurrent from "../../api/currentWeatherAPI";
 import { Card, CardBody, CardTitle } from "reactstrap";
 import styles from "./CurrentWeather.module.scss";
-import testIcon from '../../common/icons/01d.svg';
 
 class CurrentWeather extends React.Component {
   constructor(props) {
@@ -15,12 +14,10 @@ class CurrentWeather extends React.Component {
     };
   }
 
-  componentDidUpdate = prevProps => {
+  componentDidUpdate(prevProps) {
     const { location, units } = this.props;
     if (location !== prevProps.location) {
       getCurrent(location, units, currentWeather => {
-        console.log(currentWeather);
-        console.log(currentWeather.icon);
         this.setState({
           date: currentWeather.date,
           temp: currentWeather.temp,
@@ -29,7 +26,7 @@ class CurrentWeather extends React.Component {
         });
       });
     }
-  };
+  }
 
   componentDidMount() {
     const { location, units } = this.props;
@@ -46,16 +43,16 @@ class CurrentWeather extends React.Component {
   render() {
     const { icon, temp, description } = this.state;
     const { tempUnit } = this.props;
-    let iconURL = `../../common/icons/${icon}.svg`;
-    console.log(iconURL); // ASYNC - not getting populated on first try
+    if (!icon) {
+      return <div>Loading...</div>;
+    }
+    const iconSrc = require(`../../common/icons/${icon}.svg`);
     return (
       <div className={styles.cardWrapper}>
         <Card className="border-0">
           <CardBody className="text-center">
             <CardTitle>Currently</CardTitle>
-            {/*<img src={icon} alt="Current weather icon" />*/}
-            {/*<img src={`../../common/icons/${icon}.svg`} />*/}
-            <img src={iconURL} />
+            <img src={iconSrc} alt="Current weather icon" />
             <div>{temp + " " + tempUnit}</div>
             <div>{description}</div>
           </CardBody>
