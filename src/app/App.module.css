@@ -6,10 +6,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 h1 {
   padding: 1em;
+  align-self: center;
+  text-align: center;
 }
 
 

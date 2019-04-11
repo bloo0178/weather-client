@@ -36,13 +36,13 @@ class App extends Component {
         <div className={styles.Container}>
           <LocationSearch getLocation={this.getLocation} />
           <h1>{locationName}</h1>
-          <div>
+     
             <CurrentWeather
               location={location}
               units={units}
               tempUnit={tempUnit}
             />
-          </div>
+    
           <div>
             <Forecast location={location} units={units} tempUnit={tempUnit} />
           </div>
