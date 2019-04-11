@@ -2,6 +2,7 @@ import React from "react";
 import moment from "moment";
 import getForecast from "../../api/forecastAPI";
 import ForecastDayCard from "./ForecastDayCard/ForecastDayCard";
+//import styles from './Forecast.module.scss';
 
 class Forecast extends React.Component {
   constructor(props) {

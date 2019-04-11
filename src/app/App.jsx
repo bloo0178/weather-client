@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import styles from "./App.module.scss";
 import CurrentWeather from "../Components/CurrentWeather/CurrentWeather";
+import CurrentWeatherNEW from '../Components/CurrentWeather/CurrentWeatherNEW';
 import LocationSearch from "../Components/LocationSearch/LocationSearch";
 import Forecast from "../Components/Forecast/Forecast";
+import Test from '../Components/Test/Test';
 
 class App extends Component {
   constructor(props) {
@@ -37,6 +39,11 @@ class App extends Component {
           <h1>{locationName}</h1>
           <div>
             <CurrentWeather
+              location={location}
+              units={units}
+              tempUnit={tempUnit}
+            />
+            <CurrentWeatherNEW
               location={location}
               units={units}
               tempUnit={tempUnit}

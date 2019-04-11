@@ -9,8 +9,9 @@ const getForecast = (locationString, units, cb) => {
         // ^^^ This will return a max of 40 objects with the free API. Cuts off the final data point on the last day.
         .then(res => {
             const data = (res.data.list);
-            //dateRange is used as the baseline to ensure displayed forecast doesn't exceed a 5-day window.
-            var minDate = moment().format("YYYY-MM-DD");
+            //dateRange is used as the baseline to ensure displayed forecast doesn't exceed a 4-day window.
+            //var minDate = moment().format("YYYY-MM-DD");
+            var minDate = moment().add(1, 'days').format("YYYY-MM-DD");
             var maxDate = moment().add(4, 'days').format("YYYY-MM-DD");
 
             var newData = [];
