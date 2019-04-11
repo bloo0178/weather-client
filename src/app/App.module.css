@@ -1,11 +1,15 @@
 .Container {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 3em;
 }
 
 h1 {
   padding: 1em;
 }
+
+
