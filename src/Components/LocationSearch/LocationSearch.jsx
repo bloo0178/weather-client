@@ -82,7 +82,8 @@ class LocationSearchNEW extends React.Component {
                   Submit
                 </button>
               </div>
-              <div className="autocomplete-dropdown-container">
+              {/*<div className="autocomplete-dropdown-container">*/}
+              <div className={styles.AutocompleteDropdownContainer} >
                 {loading && <div>Loading...</div>}
                 {suggestions.map(suggestion => {
                   const className = suggestion.active

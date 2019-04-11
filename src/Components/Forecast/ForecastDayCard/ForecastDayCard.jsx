@@ -21,7 +21,7 @@ class ForecastDayCard extends React.Component {
                   <img src={iconSrc} alt={`${time.time} weather icon`} />
                 </td>
                 <td>{time.temp + " " + tempUnit}</td>
-                <td>{time.description}</td>
+                {/*<td>{time.description}</td>*/}
               </tr>
             );
           })}
