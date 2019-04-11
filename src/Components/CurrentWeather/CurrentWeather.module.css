@@ -1,11 +1,7 @@
-.appWrapper {
+.Container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3em;
-
-  h1 {
-    padding: 1em;
-  }
+  padding-bottom: 1rem;
 }

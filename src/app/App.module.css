@@ -1,7 +1,11 @@
-.cardWrapper {
+.Container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 1rem;
+  padding: 3em;
+}
+
+h1 {
+  padding: 1em;
 }

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import moment from 'moment';
 
+
 let APIkey = process.env.REACT_APP_WEATHER_API_KEY;
 
 const getCurrent = (locationString, units, cb) => {
@@ -11,7 +12,7 @@ const getCurrent = (locationString, units, cb) => {
                 let currentWeather = {
                     date: moment.unix(res.data.dt).format('ddd MMM D'),
                     temp: res.data.main.temp,
-                    icon: `http://openweathermap.org/img/w/${res.data.weather[0].icon}.png`,
+                    icon: res.data.weather[0].icon,
                     description: res.data.weather[0].main
                 }
                 cb(currentWeather);

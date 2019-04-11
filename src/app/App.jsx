@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import styles from "./App.module.scss";
+import styles from "./App.module.css";
 import CurrentWeather from "../Components/CurrentWeather/CurrentWeather";
-import LocationSearch from "../Components/LocationSearch/LocationSearch";
 import Forecast from "../Components/Forecast/Forecast";
+import LocationSearch from '../Components/LocationSearch/LocationSearch';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       location: "",
-      locationName: "DEFAULT",
+      locationName: "",
       units: "imperial", //offer ability to select
       tempUnit: "F"
     };
@@ -26,13 +26,13 @@ class App extends Component {
     const { location, locationName, units, tempUnit } = this.state;
     if (location === "") {
       return (
-        <div className={styles.appWrapper}>
+        <div className={styles.Container}>
           <LocationSearch getLocation={this.getLocation} />
         </div>
       );
     } else {
       return (
-        <div className={styles.appWrapper}>
+        <div className={styles.Container}>
           <LocationSearch getLocation={this.getLocation} />
           <h1>{locationName}</h1>
           <div>
