@@ -13,3 +13,9 @@
     justify-content: center;
     align-items: center;
 }
+
+.Test {
+    height: 25rem;
+    width: 25rem;
+    background-color: orange;
+}

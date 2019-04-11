@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import CurrentWeather from "../Components/CurrentWeather/CurrentWeather";
 import Forecast from "../Components/Forecast/Forecast";
 import LocationSearch from '../Components/LocationSearch/LocationSearch';
+import CarouselTest2 from "../Components/Test/Carousel2/Carousel2";
 
 class App extends Component {
   constructor(props) {
