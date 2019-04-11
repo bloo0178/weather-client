@@ -1,0 +1,30 @@
+.Container {
+    width: 20rem;
+}
+
+.InputAddOn {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .InputAddOnField {
+    flex: 1;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid lightgray;
+    padding: .25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .InputAddOnItem {
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #5A6268;
+    color: white;
+    padding: .25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+

@@ -1,7 +1,7 @@
 import React from "react";
 import getCurrent from "../../api/currentWeatherAPI";
-import { Card, CardBody, CardTitle } from "reactstrap";
-import styles from "./CurrentWeather.module.scss";
+import { TimeCard } from "../TimeCard/TimeCard";
+import styles from "./CurrentWeather.module.css";
 
 class CurrentWeather extends React.Component {
   constructor(props) {
@@ -41,22 +41,20 @@ class CurrentWeather extends React.Component {
   }
 
   render() {
-    const { icon, temp, description } = this.state;
+    const { icon, temp } = this.state;
     const { tempUnit } = this.props;
     if (!icon) {
       return <div>Loading...</div>;
     }
     const iconSrc = require(`../../common/icons/${icon}.svg`);
     return (
-      <div className={styles.cardWrapper}>
-        <Card className="border-0">
-          <CardBody className="text-center">
-            <CardTitle>Currently</CardTitle>
-            <img src={iconSrc} alt="Current weather icon" />
-            <div>{temp + " " + tempUnit}</div>
-            <div>{description}</div>
-          </CardBody>
-        </Card>
+      <div className={styles.Container}>
+      <TimeCard
+        temp={temp}
+        tempUnit={tempUnit}
+        iconSrc={iconSrc}
+        time="Currently"
+      />
       </div>
     );
   }

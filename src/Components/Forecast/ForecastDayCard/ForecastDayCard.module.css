@@ -1,0 +1,23 @@
+.Container {
+  width: 75vw;
+}
+
+.ForecastDate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 2rem;
+}
+
+.ForecastDetail {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
