@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import styles from "./App.module.css";
 import CurrentWeather from "../Components/CurrentWeather/CurrentWeather";
 import Forecast from "../Components/Forecast/Forecast";
-import LocationSearch from '../Components/LocationSearch/LocationSearch';
-import CarouselTest2 from "../Components/Test/Carousel2/Carousel2";
+import LocationSearch from "../Components/LocationSearch/LocationSearch";
 
 class App extends Component {
   constructor(props) {
@@ -36,13 +35,13 @@ class App extends Component {
         <div className={styles.Container}>
           <LocationSearch getLocation={this.getLocation} />
           <h1>{locationName}</h1>
-     
-            <CurrentWeather
-              location={location}
-              units={units}
-              tempUnit={tempUnit}
-            />
-    
+
+          <CurrentWeather
+            location={location}
+            units={units}
+            tempUnit={tempUnit}
+          />
+
           <div>
             <Forecast location={location} units={units} tempUnit={tempUnit} />
           </div>
