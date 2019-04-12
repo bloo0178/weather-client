@@ -5,6 +5,8 @@ import Forecast from "../Components/Forecast/Forecast";
 import LocationSearch from "../Components/LocationSearch/LocationSearch";
 import logo from "../common/stormLogo.svg";
 import { FadeLoader } from "react-spinners";
+import getCurrent from "../api/currentWeatherAPI";
+import getForecast from "../api/forecastAPI";
 
 class App extends Component {
   constructor(props) {
@@ -12,29 +14,36 @@ class App extends Component {
     this.state = {
       location: "",
       locationName: "",
-      units: "imperial", //offer ability to select
+      units: "imperial", 
       tempUnit: "F",
-      loading: false
+      loading: false,
+      currentWeather: "",
+      forecastData: ""
     };
   }
 
-  getLocation = (location, locationName) => {
+  getLocation = async (location, locationName) => {
+    this.setState({ loading: true });
+    const currentWeather = await getCurrent(location, this.state.units);
+    const forecastData = await getForecast(location, this.state.units);
     this.setState({
       location: location,
-      locationName: locationName
+      locationName: locationName,
+      currentWeather: currentWeather,
+      forecastData: forecastData
     });
-  };
-
-  isLoading = () => {
-    let loadState;
-    this.state.loading === true ? loadState = false : loadState = true;
-    this.setState({
-      loading: loadState
-    });
+    this.setState({ loading: false });
   };
 
   render() {
-    const { location, locationName, units, tempUnit, loading } = this.state;
+    const {
+      location,
+      locationName,
+      tempUnit,
+      loading,
+      currentWeather,
+      forecastData
+    } = this.state;
     if (loading === true) {
       return (
         <div className={styles.Container}>
@@ -56,23 +65,17 @@ class App extends Component {
           <LocationSearch getLocation={this.getLocation} />
         </div>
       );
-    } 
-      return (
-        <div className={styles.Container}>
-          <LocationSearch getLocation={this.getLocation} />
-          <h1>{locationName}</h1>
-          <CurrentWeather
-            isLoading={this.isLoading}
-            location={location}
-            units={units}
-            tempUnit={tempUnit}
-          />
-          <div>
-            <Forecast location={location} units={units} tempUnit={tempUnit} />
-          </div>
+    }
+    return (
+      <div className={styles.Container}>
+        <LocationSearch getLocation={this.getLocation} />
+        <h1>{locationName}</h1>
+        <CurrentWeather currentWeather={currentWeather} />
+        <div>
+          <Forecast forecastData={forecastData} tempUnit={tempUnit} />
         </div>
-      );
-    
+      </div>
+    );
   }
 }
 
