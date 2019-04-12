@@ -6,7 +6,7 @@ import PlacesAutocomplete, {
 import { GoogleApiWrapper } from "google-maps-react";
 import styles from "./LocationSearch.module.css";
 
-class LocationSearchNEW extends React.Component {
+class LocationSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +29,6 @@ class LocationSearchNEW extends React.Component {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
-        console.log("Success", lat, lng);
         this.setState({
           latitude: lat,
           longitude: lng,
@@ -115,4 +114,4 @@ class LocationSearchNEW extends React.Component {
 
 export default GoogleApiWrapper({
   apiKey: process.env.REACT_APP_GMAPS_API_KEY
-})(LocationSearchNEW);
+})(LocationSearch);

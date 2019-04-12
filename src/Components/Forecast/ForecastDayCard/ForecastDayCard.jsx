@@ -1,15 +1,13 @@
 import React from "react";
 import styles from "./ForecastDayCard.module.css";
 
-class ForecastDayCard extends React.Component {
-
-  render() {
-    const { date, tempUnit, times } = this.props;
-    return (
-      <div className={styles.Container}>
-        <h4 className={styles.ForecastDate}>{date}</h4>
-        <table>
-            <tbody className={styles.ForecastDetail}>
+const ForecastDayCard = props => {
+  const { date, tempUnit, times } = props;
+  return (
+    <div className={styles.Container}>
+      <h4 className={styles.ForecastDate}>{date}</h4>
+      <table>
+        <tbody className={styles.ForecastDetail}>
           {times.map(time => {
             let regex = /(.{3})(?=(\.png))/;
             let icon = regex.exec(time.icon)[0];
@@ -24,11 +22,10 @@ class ForecastDayCard extends React.Component {
               </tr>
             );
           })}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
-}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export default ForecastDayCard;
