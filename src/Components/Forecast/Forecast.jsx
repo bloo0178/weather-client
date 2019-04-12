@@ -52,23 +52,6 @@ class Forecast extends React.Component {
         </SwipeableViews>
       </div>
     );
-
-    /*return (
-      <div className={styles.Container}>
-        {this.state.array.map(day => {
-          return (
-            <div className={styles.Cards}>
-              <ForecastDayCard
-                key={day.date}
-                date={moment(day.date, "YYYY-MM-DD").format("ddd MMM D")}
-                times={day.times}
-                tempUnit={this.props.tempUnit}
-              />
-            </div>
-          );
-        })}
-      </div>
-    );*/
   }
 }
 

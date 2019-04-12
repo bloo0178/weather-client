@@ -15,7 +15,8 @@ class CurrentWeather extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { location, units } = this.props;
+    const { location, units, isLoading } = this.props;
+    //isLoading();
     if (location !== prevProps.location) {
       getCurrent(location, units, currentWeather => {
         this.setState({
@@ -29,11 +30,14 @@ class CurrentWeather extends React.Component {
   }
 
   componentDidMount() {
-    const { location, units } = this.props;
+    console.log("MOUNT");
+    console.log(this.props);
+    const { location, units, isLoading, tempUnit } = this.props;
+    //isLoading();
     getCurrent(location, units, currentWeather => {
       this.setState({
         date: currentWeather.date,
-        temp: currentWeather.temp,
+        temp: `${currentWeather.temp} ${tempUnit}`,
         icon: currentWeather.icon,
         description: currentWeather.description
       });
@@ -42,7 +46,6 @@ class CurrentWeather extends React.Component {
 
   render() {
     const { icon, temp } = this.state;
-    const { tempUnit } = this.props;
     if (!icon) {
       return <div>Loading...</div>;
     }
@@ -51,7 +54,6 @@ class CurrentWeather extends React.Component {
       <div className={styles.Container}>
       <TimeCard
         temp={temp}
-        tempUnit={tempUnit}
         iconSrc={iconSrc}
         time="Currently"
       />

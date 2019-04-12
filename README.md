@@ -1,25 +1,15 @@
 # Description: 
-React app created to show current weather and 5-day forecast. This was done to get more experience with structuring a React project and working with/ displaying data from a third-party API. 
-
-# Learnings: 
-- Using .env with React (previous experience using with Node)
-- Leveraging Places API to autocomplete/ suggest location data 
-- Higher Order Components 
-- Fragments
-- Context
-- Further experience w/ GitHub. (.gitignore, branch/ pull)
+React app created to show current weather and forecast. This was done to get more experience with structuring a React project and working with/ displaying data from a third-party API. 
 
 # Future Updates: 
 - Make submit work with onEnter
-- Add loading icons
-- Assign keys to map items or use FRAGMENTS
-- Refactor/ comment code
+- Add loading spinner. Enable via Hooks. 
+- Potentially add routing. Not sure if this is warranted.
 - Current React-Places-Autocomplete component has bug where I can't limit search results to just cities. Look for a new autocomplete component or figure out a workaround. 
-- Weather API has limitations around data available on free-tier. Current-day forecast only shows 6PM and 9PM. Look into using another API. 
+- Weather API has limitations around data available on free-tier. Current-day forecast only shows 6PM and 9PM. Look into using another API. Possibly switch to Dark Sky paid API. 
 
-# Libraries/ Packages Used: 
+# Key Dependencies: 
 - [https://openweathermap.org/api] (Weather data)
-- [https://reactstrap.github.io/] (Styling - Bootstrap 4)
 - [https://www.npmjs.com/package/axios] (Promise-based HTTP client for API)
 - [https://www.npmjs.com/package/google-maps-react] (Used for wrapping Places API Key)
 - [https://www.npmjs.com/package/moment] (Date parsing/ formatting)
