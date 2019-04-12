@@ -13,42 +13,39 @@ class Forecast extends React.Component {
     };
   }
 
-  componentDidUpdate = prevProps => {
+  componentDidUpdate = async prevProps => {
     const { location, units } = this.props;
     if (location !== prevProps.location) {
-      getForecast(location, units, newData => {
-        this.setState({
-          array: newData
-        });
+      const forecastData = await getForecast(location, units);
+      this.setState({
+        array: forecastData
       });
     }
   };
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     const { location, units } = this.props;
-    getForecast(location, units, data => {
-      console.log(data);
-      this.setState({
-        array: data
-      });
+    const forecastData = await getForecast(location, units);
+    this.setState({
+      array: forecastData
     });
   };
 
   render() {
     return (
       <div className={styles.Container}>
-        <SwipeableViews enableMouseEvents >
-        {this.state.array.map(day => {
-          return (
-            <div className={styles.Cards} key={day.date}>
-              <ForecastDayCard
-                date={moment(day.date, "YYYY-MM-DD").format("ddd MMM D")}
-                times={day.times}
-                tempUnit={this.props.tempUnit}
-              />
-            </div>
-          );
-        })}
+        <SwipeableViews enableMouseEvents>
+          {this.state.array.map(day => {
+            return (
+              <div className={styles.Cards} key={day.date}>
+                <ForecastDayCard
+                  date={moment(day.date, "YYYY-MM-DD").format("ddd MMM D")}
+                  times={day.times}
+                  tempUnit={this.props.tempUnit}
+                />
+              </div>
+            );
+          })}
         </SwipeableViews>
       </div>
     );

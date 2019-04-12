@@ -56,7 +56,7 @@ class App extends Component {
           <LocationSearch getLocation={this.getLocation} />
         </div>
       );
-    } else {
+    } 
       return (
         <div className={styles.Container}>
           <LocationSearch getLocation={this.getLocation} />
@@ -72,7 +72,7 @@ class App extends Component {
           </div>
         </div>
       );
-    }
+    
   }
 }
 

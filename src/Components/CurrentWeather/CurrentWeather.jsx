@@ -14,33 +14,32 @@ class CurrentWeather extends React.Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    const { location, units, isLoading } = this.props;
-    //isLoading();
-    if (location !== prevProps.location) {
-      getCurrent(location, units, currentWeather => {
-        this.setState({
-          date: currentWeather.date,
-          temp: currentWeather.temp,
-          icon: currentWeather.icon,
-          description: currentWeather.description
-        });
-      });
-    }
-  }
-
-  componentDidMount() {
-    console.log("MOUNT");
-    console.log(this.props);
+  async componentDidUpdate(prevProps) {
     const { location, units, isLoading, tempUnit } = this.props;
-    //isLoading();
-    getCurrent(location, units, currentWeather => {
+
+    if (location !== prevProps.location) {
+      const currentWeather = await getCurrent(location, units);
+
       this.setState({
         date: currentWeather.date,
         temp: `${currentWeather.temp} ${tempUnit}`,
         icon: currentWeather.icon,
         description: currentWeather.description
       });
+    }
+  }
+
+  async componentDidMount() {
+    const { location, units, isLoading, tempUnit } = this.props;
+
+    //isLoading();
+    const currentWeather = await getCurrent(location, units);
+
+    this.setState({
+      date: currentWeather.date,
+      temp: `${currentWeather.temp} ${tempUnit}`,
+      icon: currentWeather.icon,
+      description: currentWeather.description
     });
   }
 
@@ -52,11 +51,7 @@ class CurrentWeather extends React.Component {
     const iconSrc = require(`../../common/icons/${icon}.svg`);
     return (
       <div className={styles.Container}>
-      <TimeCard
-        temp={temp}
-        iconSrc={iconSrc}
-        time="Currently"
-      />
+        <TimeCard temp={temp} iconSrc={iconSrc} time="Currently" />
       </div>
     );
   }
