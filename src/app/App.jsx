@@ -5,15 +5,14 @@ import Forecast from "../Components/Forecast/Forecast";
 import LocationSearch from "../Components/LocationSearch/LocationSearch";
 import logo from "../common/stormLogo.svg";
 import { FadeLoader } from "react-spinners";
-import getCurrent from "../api/currentWeatherAPI";
-import getForecast from "../api/forecastAPI";
 import axios from "axios";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: "",
+      lat: "",
+      lon: "",
       locationName: "",
       units: "imperial",
       tempUnit: "F",
@@ -23,16 +22,9 @@ class App extends Component {
     };
   }
 
-  // location = `lat=${latitude}&lon=${longitude}`
-  //getLocation = async (location, locationName) => {
-  getLocation = async(lat, lon, locationName) => {
+  getLocation = async (lat, lon, locationName) => {
     this.setState({ loading: true });
-    //const currentWeather = await getCurrent(location, this.state.units);
 
-    console.log(this.state.units);
-    console.log(`https://buceh2uvmj.execute-api.us-east-1.amazonaws.com/dev/getweather?lat=${lat}&lon=${lon}&units=${
-      this.state.units
-    }`)
     const currentWeather = await axios
       .get(
         `https://buceh2uvmj.execute-api.us-east-1.amazonaws.com/dev/getweather?lat=${lat}&lon=${lon}&units=${
@@ -45,22 +37,31 @@ class App extends Component {
           temp: res.data.result.temp
         };
       });
-    //const forecastData = await getForecast(location, this.state.units);
-    const forecastData = await getForecast(lat, lon, this.state.units);
+
+    const forecastData = await axios
+      .get(
+        `https://buceh2uvmj.execute-api.us-east-1.amazonaws.com/dev/forecast?lat=${lat}&lon=${lon}&units=${
+          this.state.units
+        }`
+      )
+      .then(res => {
+        return res.data.result;
+      });
+
     this.setState({
-      //location: location,
       lat: lat,
       lon: lon,
       locationName: locationName,
       currentWeather: currentWeather,
       forecastData: forecastData
     });
+
     this.setState({ loading: false });
   };
 
   render() {
     const {
-      location,
+      lat,
       locationName,
       tempUnit,
       loading,
@@ -81,7 +82,7 @@ class App extends Component {
         </div>
       );
     }
-    if (location === "") {
+    if (lat === "") {
       return (
         <div className={styles.Container}>
           <img src={logo} className={styles.Logo} alt="logo" />
