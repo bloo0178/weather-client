@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styles from "./App.module.css";
-import CurrentWeather from "../Components/CurrentWeather/CurrentWeather";
-import Forecast from "../Components/Forecast/Forecast";
-import LocationSearch from "../Components/LocationSearch/LocationSearch";
+import CurrentWeather from "../components/CurrentWeather/CurrentWeather";
+import Forecast from "../components/Forecast/Forecast";
+import LocationSearch from "../components/LocationSearch/LocationSearch";
 import logo from "../common/stormLogo.svg";
 import { FadeLoader } from "react-spinners";
 import axios from "axios";

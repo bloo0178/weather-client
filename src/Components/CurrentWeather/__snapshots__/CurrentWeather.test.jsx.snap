@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurrentWeather /> renders correctly 1`] = `
+<div
+  className="Container"
+>
+  <TimeCard
+    iconSrc={
+      Object {
+        "ReactComponent": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "render": [Function],
+        },
+        "__esModule": true,
+        "default": "01d.svg",
+      }
+    }
+    temp="85"
+    time="Currently"
+  />
+</div>
+`;
