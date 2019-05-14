@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TimeCard /> renders correctly 1`] = `
+<div
+  className="Container"
+>
+  <div>
+    85
+  </div>
+  <div>
+    <img
+      alt="Current weather icon"
+      src="../../common/icons/10n.svg"
+    />
+  </div>
+  <div>
+    Currently
+  </div>
+</div>
+`;

@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ForecastDayCard /> renders correctly 1`] = `
+<div
+  className="Container"
+>
+  <h4
+    className="ForecastDate"
+  >
+    Tue May 14
+  </h4>
+  <table>
+    <tbody
+      className="ForecastDetail"
+    >
+      <tr
+        key="12am"
+      >
+        <td>
+          12am
+        </td>
+        <td>
+          <img
+            alt="12am weather icon"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "10n.svg",
+              }
+            }
+          />
+        </td>
+        <td>
+          85 F
+        </td>
+      </tr>
+      <tr
+        key="3am"
+      >
+        <td>
+          3am
+        </td>
+        <td>
+          <img
+            alt="3am weather icon"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "10n.svg",
+              }
+            }
+          />
+        </td>
+        <td>
+          86 F
+        </td>
+      </tr>
+      <tr
+        key="6am"
+      >
+        <td>
+          6am
+        </td>
+        <td>
+          <img
+            alt="6am weather icon"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "10n.svg",
+              }
+            }
+          />
+        </td>
+        <td>
+          87 F
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

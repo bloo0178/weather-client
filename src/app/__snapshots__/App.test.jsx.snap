@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> renders correctly - loading = false; lat & long != null 1`] = `
+<div
+  className="Container"
+>
+  <Wrapper
+    getLocation={[Function]}
+  />
+  <h1>
+    Mountain View
+  </h1>
+  <CurrentWeather
+    currentWeather=""
+  />
+  <div>
+    <Forecast
+      forecastData=""
+      tempUnit="F"
+    />
+  </div>
+</div>
+`;
+
+exports[`<App /> renders correctly - loading = false; lat = ''  1`] = `
+<div
+  className="Container"
+>
+  <img
+    alt="logo"
+    className="Logo"
+    src="stormLogo.svg"
+  />
+  <Wrapper
+    getLocation={[Function]}
+  />
+</div>
+`;
+
+exports[`<App /> renders correctly - loading = true 1`] = `
+<div
+  className="Container"
+>
+  <div
+    className="Loading"
+  >
+    <onlyUpdateForKeys(Loader)
+      color="#000000"
+      css={Object {}}
+      height={15}
+      heightUnit="px"
+      loading={true}
+      margin="2px"
+      radius={2}
+      radiusUnit="px"
+      size={150}
+      sizeUnit="px"
+      width={5}
+      widthUnit="px"
+    />
+  </div>
+</div>
+`;
