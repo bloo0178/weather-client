@@ -17,3 +17,4 @@ React app created to show current weather and forecast. This pulls data from a c
 
 # API Keys Needed to Run: 
 - Google Places API
+- Open Weather API
